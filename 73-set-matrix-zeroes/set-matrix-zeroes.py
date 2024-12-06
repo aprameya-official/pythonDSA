@@ -5,16 +5,17 @@ class Solution:
         """
         n = len(matrix)      # Number of rows
         m = len(matrix[0])   # Number of columns
-        row=[0]*n
-        col=[0]*m
+        row=set()
+        col=set()
         for i in range(n):
             for j in range(m):
                 if matrix[i][j]==0:
-                    row[i]=1
-                    col[j]=1
-        for i in range(n):
+                    row.add(i)
+                    col.add(j)
+        for i in row:
             for j in range(m):
-                if row[i] or col[j]:
-                    matrix[i][j]=0
-
+                matrix[i][j]=0
+        for i in range(n):
+            for j in col:
+                matrix[i][j]=0
         
