@@ -1,10 +1,14 @@
 class Solution:
     def rotate(self, matrix: List[List[int]]):
         n = len(matrix)
-        rotated =[row[:] for row in matrix]  
+
         for i in range(n):
-            for j in range(n):
-                matrix[j][n - i - 1] = rotated[i][j]
+            for j in range(i):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        # reversing each row of the matrix
+        for i in range(n):
+            matrix[i].reverse()
+
  
 
         
